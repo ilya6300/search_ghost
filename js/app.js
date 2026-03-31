@@ -1,3 +1,4 @@
+import { btnKeyControl } from "./controls/controls.js";
 import { lvlGame } from "./game.js";
 
 const render = async () => {
@@ -7,7 +8,7 @@ const render = async () => {
     resizeTo: window,
   });
   document.body.appendChild(app.canvas);
-
+  btnKeyControl();
   // 1. Получаем объект уровня и игрока
   const lvlData = await lvlGame();
   const world = lvlData.container; // Это наш PIXI.Container с картой и игроком
@@ -16,18 +17,21 @@ const render = async () => {
   // 2. Добавляем мир на сцену
   app.stage.addChild(world);
 
-  // 3. Запускаем игровой цикл (Ticker) для работы камеры
+  // Инициализируем управление и получаем функцию обновления
+  const updateControls = btnKeyControl(player, lvlData.map.objects);
+
   app.ticker.add(() => {
-    if (!player || !player.view) return;
+    // 1. Двигаем игрока
+    updateControls();
 
-    // Рассчитываем целевые координаты для "мира"
-    // Игрок должен быть в центре экрана: (Экран / 2) - (Позиция игрока * масштаб)
-    const targetX = app.screen.width / 2 - player.view.x * world.scale.x;
-    const targetY = app.screen.height / 2 - player.view.y * world.scale.y;
+    // 2. Центрируем камеру на игроке
+    // Формула: Центр экрана - (Позиция игрока внутри мира * масштаб мира)
+    world.x = app.screen.width / 2 - player.view.x * world.scale.x;
+    world.y = app.screen.height / 2 - player.view.y * world.scale.y;
 
-    // Применяем координаты к контейнеру мира
-    world.x = targetX;
-    world.y = targetY;
+    // Опционально: если хотите, чтобы персонаж был ровно по центру своего спрайта
+    world.x -= (player.view.width / 2) * world.scale.x;
+    world.y -= (player.view.height / 2) * world.scale.y;
   });
 };
 

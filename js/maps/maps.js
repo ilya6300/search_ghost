@@ -26,6 +26,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 80,
@@ -36,6 +37,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 4400,
@@ -46,6 +48,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 2380,
@@ -56,6 +59,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 160,
@@ -66,6 +70,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 1840,
@@ -86,6 +91,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 80,
@@ -96,6 +102,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 1840,
@@ -106,6 +113,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 1840,
@@ -116,6 +124,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 2560,
@@ -126,6 +135,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 2560,
@@ -136,6 +146,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
       {
         x: 2560,
@@ -146,6 +157,7 @@ export const maps = [
         texture: null,
         action: null,
         color: "#91a3b0",
+        collision: true,
       },
     ],
   },
